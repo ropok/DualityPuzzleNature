@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> levelList = new List<GameObject>();
     private GameObject level;
 
+    public List<String> textLevelList = new List<String>();
+
     //private List<HiddenObjectData> activeHiddenObjectList;
     private GameObject objectHolderPrefab;
     public GameObject greenMark;
@@ -36,6 +38,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         transitionPanel.SetActive(true);
+        UIManager.instance.LevelText.text = "" + textLevelList[(int)gameLevel];
         StartCoroutine(CrossFadeInitiation());
         Invoke("InitGameplay", transitionTime);
     }
@@ -148,6 +151,10 @@ public class LevelManager : MonoBehaviour
                 gameStatus = GameStatus.END;
             }
         }
+
+        textLevelList[(int)gameLevel] = string.Format(textLevelList[(int)gameLevel], totalHiddenObjectsFound.ToString());
+        UIManager.instance.LevelText.text = "" + textLevelList[(int)gameLevel];
+        Debug.Log(textLevelList[(int)gameLevel]);
         StartCoroutine(CrossfadeInAnimation());
         StartCoroutine(CrossfadeOutAnimation());
         Invoke("InitiateHiddenObjects", transitionTime);
