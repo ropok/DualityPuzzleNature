@@ -9,9 +9,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Text timerText;
     [SerializeField] private Text objectCount;
+    [SerializeField] private Text levelText;
 
     public Text TimerText { get { return timerText; } }
     public Text ObjectCount { get { return objectCount; } }
+    public Text LevelText { get { return levelText; } }
 
     private void Awake()
     {

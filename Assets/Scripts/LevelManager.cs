@@ -23,8 +23,9 @@ public class LevelManager : MonoBehaviour
     private GameLevel gameLevel = GameLevel.LEVEL_A;
 
     public Animator transition;
-    private float transitionTime = 1f;
-    private bool isCrossFade = false;
+    public float transitionTime = 3f;
+    //private bool isCrossFade = true;
+    public GameObject transitionPanel;
 
     private void Awake()
     {
@@ -34,10 +35,18 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        transitionPanel.SetActive(true);
+        StartCoroutine(CrossFadeInitiation());
+        Invoke("InitGameplay", transitionTime);
+    }
+    
+    void InitGameplay()
+    {
         UIManager.instance.TimerText.gameObject.SetActive(true);
         UIManager.instance.ObjectCount.gameObject.SetActive(true);
         LoadLevel();
         InitiateHiddenObjects();
+
     }
 
     void InitiateHiddenObjects()
@@ -54,8 +63,6 @@ public class LevelManager : MonoBehaviour
     void LoadLevel()
     {
         DestroyMark();
-        StartCoroutine(CrossfadeInAnimation());
-        StartCoroutine(CrossfadeOutAnimation());
         level = Instantiate(levelList[(int)gameLevel], Vector3.zero, Quaternion.identity);
     }
 
@@ -67,15 +74,21 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    IEnumerator CrossFadeInitiation()
+    {
+        yield return new WaitForSeconds(transitionTime);
+        transition.SetTrigger("FadeOut");
+    }
+
     IEnumerator CrossfadeOutAnimation()
     {
-        transition.SetTrigger("FadeOut");
         yield return new WaitForSeconds(transitionTime);
+        transition.SetTrigger("FadeOut");
     }
     IEnumerator CrossfadeInAnimation()
     {
         transition.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSeconds(1);
 
     }
 
@@ -135,7 +148,11 @@ public class LevelManager : MonoBehaviour
                 gameStatus = GameStatus.END;
             }
         }
-        LoadLevel();
+        StartCoroutine(CrossfadeInAnimation());
+        StartCoroutine(CrossfadeOutAnimation());
+        Invoke("InitiateHiddenObjects", transitionTime);
+        Invoke("LoadLevel", transitionTime);
+
 
     }
 
@@ -183,7 +200,6 @@ public class LevelManager : MonoBehaviour
         else if (gameStatus == GameStatus.NEXT)
         {
             Debug.Log("Load next level");
-            InitiateHiddenObjects();
         }
 
         else if (gameStatus == GameStatus.END)
