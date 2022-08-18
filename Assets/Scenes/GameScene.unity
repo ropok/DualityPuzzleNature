@@ -587,8 +587,8 @@ MonoBehaviour:
   - {fileID: 1465372374862578600, guid: 2ea55ff3cc14d7a41920c5d55eb7a4d9, type: 3}
   textLevelList:
   - Find differences of these two pictures to decide your destination!
-  - You found {0} differences, you're going to Airport
-  - You found {0} differences, you're going to Train Station
+  - You found {0} differences, you're going to The Airport
+  - You found {0} differences, you're going to The Train Station
   - You found {0} differences, you're going to The Beach
   - You found {0} differences, you're going to The Forest
   greenMark: {fileID: 1259790411824814022, guid: 512fbbc7e9e50e34ab7474513150d4a8, type: 3}
