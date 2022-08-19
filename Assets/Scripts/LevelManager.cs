@@ -37,6 +37,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Gameplay");
         transitionPanel.SetActive(true);
         UIManager.instance.LevelText.text = "" + textLevelList[(int)gameLevel];
         StartCoroutine(CrossFadeInitiation());
@@ -60,7 +61,7 @@ public class LevelManager : MonoBehaviour
         UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
         //activeHiddenObjectList.Clear();
 
-        gameStatus = GameStatus.PLAYING;
+        if (gameLevel != GameLevel.LEVEL_D || gameLevel != GameLevel.LEVEL_E) gameStatus = GameStatus.PLAYING;
     }
 
     void LoadLevel()
@@ -213,7 +214,10 @@ public class LevelManager : MonoBehaviour
         {
             UIManager.instance.TimerText.gameObject.SetActive(false);
             UIManager.instance.ObjectCount.gameObject.SetActive(false);
-            Debug.Log("Game Over!");
+
+            // Change music
+            FindObjectOfType<AudioManager>().Stop("Gameplay");
+            FindObjectOfType<AudioManager>().Play("Ending");
         }
     }
 
