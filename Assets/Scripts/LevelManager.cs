@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class LevelManager : MonoBehaviour
     
     void InitGameplay()
     {
+        UIManager.instance.ButtonExit.gameObject.SetActive(false);
         UIManager.instance.TimerText.gameObject.SetActive(true);
         UIManager.instance.ObjectCount.gameObject.SetActive(true);
         LoadLevel();
@@ -61,7 +63,7 @@ public class LevelManager : MonoBehaviour
         UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
         //activeHiddenObjectList.Clear();
 
-        if (gameLevel != GameLevel.LEVEL_D || gameLevel != GameLevel.LEVEL_E) gameStatus = GameStatus.PLAYING;
+        gameStatus = GameStatus.PLAYING;
     }
 
     void LoadLevel()
@@ -158,7 +160,18 @@ public class LevelManager : MonoBehaviour
         Debug.Log(textLevelList[(int)gameLevel]);
         StartCoroutine(CrossfadeInAnimation());
         StartCoroutine(CrossfadeOutAnimation());
-        Invoke("InitiateHiddenObjects", transitionTime);
+        if (gameStatus != GameStatus.END)
+        {
+            Invoke("InitiateHiddenObjects", transitionTime);
+        }
+        else
+        {
+            UIManager.instance.ButtonExit.gameObject.SetActive(true);
+            UIManager.instance.TimerText.gameObject.SetActive(false);
+            UIManager.instance.ObjectCount.gameObject.SetActive(false);
+            FindObjectOfType<AudioManager>().Stop("Gameplay");
+            FindObjectOfType<AudioManager>().Play("Ending");
+        }
         Invoke("LoadLevel", transitionTime);
 
 
@@ -212,17 +225,16 @@ public class LevelManager : MonoBehaviour
 
         else if (gameStatus == GameStatus.END)
         {
-            UIManager.instance.TimerText.gameObject.SetActive(false);
-            UIManager.instance.ObjectCount.gameObject.SetActive(false);
 
             // Change music
-            FindObjectOfType<AudioManager>().Stop("Gameplay");
-            FindObjectOfType<AudioManager>().Play("Ending");
         }
     }
 
 
-
+    public void ExitToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+    }
 }
 
 [System.Serializable]
