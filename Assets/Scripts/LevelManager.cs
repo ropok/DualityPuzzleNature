@@ -182,25 +182,25 @@ public class LevelManager : MonoBehaviour
         if (gameStatus == GameStatus.PLAYING)
         {
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 mark = new Vector3(pos[0], pos[1], 1);
-                RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //    Vector3 mark = new Vector3(pos[0], pos[1], 1);
+            //    RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
 
-                if (hit && hit.collider != null)
-                {
-                    //Debug.Log("Object Name:" + hit.collider.gameObject.name);
-                    hit.collider.enabled = false;
-                    Instantiate(greenMark, mark, Quaternion.identity);
+            //    if (hit && hit.collider != null)
+            //    {
+            //        //Debug.Log("Object Name:" + hit.collider.gameObject.name);
+            //        hit.collider.enabled = false;
+            //        Instantiate(greenMark, mark, Quaternion.identity);
 
 
-                    totalHiddenObjectsFound++;
-                    UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
-                    //Debug.Log("Hidden Objects Found: " + totalHiddenObjectsFound);
-                }
+            //        totalHiddenObjectsFound++;
+            //        UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
+            //        //Debug.Log("Hidden Objects Found: " + totalHiddenObjectsFound);
+            //    }
 
-            }
+            //}
 
             currentTime -= Time.deltaTime;
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
