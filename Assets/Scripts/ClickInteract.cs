@@ -16,6 +16,7 @@ public class ClickInteract : MonoBehaviour
             {
                 DestroyDifference(hitInfo);
                 GreenMarkAppears(greenMark, new Vector3(ray.origin.x, ray.origin.y, 1));
+                ObjectsCount(1);
             }
         }
 
@@ -30,5 +31,10 @@ public class ClickInteract : MonoBehaviour
     void GreenMarkAppears(GameObject greenMark, Vector3 greenMarkPosition)
     {
         Instantiate(greenMark, greenMarkPosition, Quaternion.identity);
+    }
+
+    void ObjectsCount(int count)
+    {
+        ObjectsFound.objectsFound += count;
     }
 }
