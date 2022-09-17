@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using System;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -44,7 +45,7 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(CrossFadeInitiation());
         Invoke("InitGameplay", transitionTime);
     }
-    
+
     void InitGameplay()
     {
         UIManager.instance.ButtonExit.gameObject.SetActive(false);
@@ -177,8 +178,16 @@ public class LevelManager : MonoBehaviour
 
     }
 
+
     private void Update()
     {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            foreach (var greenMark in AllEnabledGreenMarks.AllGreenMarks.ToList())
+            {
+                Destroy(greenMark.gameObject);
+            }
+        }
         if (gameStatus == GameStatus.PLAYING)
         {
 
