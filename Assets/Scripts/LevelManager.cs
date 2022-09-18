@@ -31,8 +31,11 @@ public class LevelManager : MonoBehaviour
     //private bool isCrossFade = true;
     public GameObject transitionPanel;
 
+    private Timer timer;
+
     private void Awake()
     {
+        timer = GetComponent<Timer>();
         if (instance == null) instance = this;
         else if (instance != null) Destroy(gameObject);
     }
@@ -49,7 +52,7 @@ public class LevelManager : MonoBehaviour
     void InitGameplay()
     {
         UIManager.instance.ButtonExit.gameObject.SetActive(false);
-        UIManager.instance.TimerText.gameObject.SetActive(true);
+        //UIManager.instance.TimerText.gameObject.SetActive(true);
         UIManager.instance.ObjectCount.gameObject.SetActive(true);
         LoadLevel();
         InitiateHiddenObjects();
@@ -58,13 +61,14 @@ public class LevelManager : MonoBehaviour
 
     void InitiateHiddenObjects()
     {
-        currentTime = timeLimit;
-        UIManager.instance.TimerText.text = "" + currentTime;
-        totalHiddenObjectsFound = 0;
-        UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
+        //currentTime = timeLimit;
+        //UIManager.instance.TimerText.text = "" + currentTime;
+        //totalHiddenObjectsFound = 0;
+        //UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
         //activeHiddenObjectList.Clear();
 
         gameStatus = GameStatus.PLAYING;
+        timer.StartTimer();
     }
 
     void LoadLevel()
@@ -170,7 +174,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             UIManager.instance.ButtonExit.gameObject.SetActive(true);
-            UIManager.instance.TimerText.gameObject.SetActive(false);
+            //UIManager.instance.TimerText.gameObject.SetActive(false);
             UIManager.instance.ObjectCount.gameObject.SetActive(false);
             FindObjectOfType<AudioManager>().Stop("Gameplay");
             FindObjectOfType<AudioManager>().Play("Ending");
@@ -185,32 +189,7 @@ public class LevelManager : MonoBehaviour
     {
         if (gameStatus == GameStatus.PLAYING)
         {
-
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            //    Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //    Vector3 mark = new Vector3(pos[0], pos[1], 1);
-            //    RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
-
-            //    if (hit && hit.collider != null)
-            //    {
-            //        //Debug.Log("Object Name:" + hit.collider.gameObject.name);
-            //        hit.collider.enabled = false;
-            //        Instantiate(greenMark, mark, Quaternion.identity);
-
-
-            //        totalHiddenObjectsFound++;
-            //        UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
-            //        //Debug.Log("Hidden Objects Found: " + totalHiddenObjectsFound);
-            //    }
-
-            //}
-
-            currentTime -= Time.deltaTime;
-            TimeSpan time = TimeSpan.FromSeconds(currentTime);
-            UIManager.instance.TimerText.text = time.ToString("mm':'ss");
-
-            if (currentTime <= 0)
+            if (timer.timeRemaining <= 0)
             {
                 level.SetActive(false);
                 ObjectsFoundCheck();

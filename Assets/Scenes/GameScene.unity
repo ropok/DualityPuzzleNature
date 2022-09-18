@@ -883,6 +883,7 @@ GameObject:
   - component: {fileID: 1536284332}
   - component: {fileID: 1536284331}
   - component: {fileID: 1536284333}
+  - component: {fileID: 1536284334}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -946,6 +947,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   greenMark: {fileID: 1259790411824814022, guid: 512fbbc7e9e50e34ab7474513150d4a8, type: 3}
+--- !u!114 &1536284334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536284330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6549d651a1be7da4d8fa522fd66d06d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLimit: 5
+  timerText: {fileID: 1843890673}
 --- !u!1 &1843890672
 GameObject:
   m_ObjectHideFlags: 0
