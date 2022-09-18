@@ -69,16 +69,18 @@ public class LevelManager : MonoBehaviour
 
     void LoadLevel()
     {
-        DestroyMark();
+        DestroyGreenMark();
         level = Instantiate(levelList[(int)gameLevel], Vector3.zero, Quaternion.identity);
     }
 
-    void DestroyMark()
+    void DestroyGreenMark()
     {
-        GameObject[] marks = GameObject.FindGameObjectsWithTag("Mark");
-        foreach (GameObject mark in marks)
-            GameObject.Destroy(mark);
+        if (AllEnabledGreenMarks.AllGreenMarks.Count <= 0) return;
 
+        foreach (var greenMark in AllEnabledGreenMarks.AllGreenMarks.ToList())
+        {
+            Destroy(greenMark.gameObject);
+        }
     }
 
     IEnumerator CrossFadeInitiation()
@@ -181,13 +183,6 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
-        {
-            foreach (var greenMark in AllEnabledGreenMarks.AllGreenMarks.ToList())
-            {
-                Destroy(greenMark.gameObject);
-            }
-        }
         if (gameStatus == GameStatus.PLAYING)
         {
 
