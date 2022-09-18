@@ -902,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e0adcc7b5cb7d42849d3acd530a87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 60
+  timeLimit: 5
   levelList:
   - {fileID: 1865121419565209193, guid: a472edf3f7427604cbd68bcba9d8a45a, type: 3}
   - {fileID: 321626455704711063, guid: 483eea4b52fdefc4f988eebd1d612a82, type: 3}
