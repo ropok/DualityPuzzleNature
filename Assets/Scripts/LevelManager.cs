@@ -74,6 +74,7 @@ public class LevelManager : MonoBehaviour
     void LoadLevel()
     {
         DestroyGreenMark();
+        ObjectsFound.objectsFound = 0;
         level = Instantiate(levelList[(int)gameLevel], Vector3.zero, Quaternion.identity);
     }
 
@@ -162,7 +163,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        textLevelList[(int)gameLevel] = string.Format(textLevelList[(int)gameLevel], totalHiddenObjectsFound.ToString());
+        textLevelList[(int)gameLevel] = string.Format(textLevelList[(int)gameLevel], ObjectsFound.objectsFound.ToString());
         UIManager.instance.LevelText.text = "" + textLevelList[(int)gameLevel];
         Debug.Log(textLevelList[(int)gameLevel]);
         StartCoroutine(CrossfadeInAnimation());
