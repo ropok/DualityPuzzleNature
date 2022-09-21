@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 1536284333}
   - component: {fileID: 1536284334}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -904,7 +904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e0adcc7b5cb7d42849d3acd530a87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 5
   levelList:
   - {fileID: 1865121419565209193, guid: a472edf3f7427604cbd68bcba9d8a45a, type: 3}
   - {fileID: 321626455704711063, guid: 483eea4b52fdefc4f988eebd1d612a82, type: 3}
@@ -917,7 +916,6 @@ MonoBehaviour:
   - You found {0} differences, you're going to The Train Station
   - You found {0} differences, you're going to The Beach
   - You found {0} differences, you're going to The Forest
-  greenMark: {fileID: 1259790411824814022, guid: 512fbbc7e9e50e34ab7474513150d4a8, type: 3}
   transition: {fileID: 67657951}
   transitionTime: 5
   transitionPanel: {fileID: 2113721326}

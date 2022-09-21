@@ -5,39 +5,28 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static LevelManager instance;
-    [SerializeField]
-    private float timeLimit;
-    //[SerializeField]
-    //private List<HiddenObjectData> hiddenObjectList;
     public List<GameObject> levelList = new List<GameObject>();
     private GameObject level;
 
     public List<String> textLevelList = new List<String>();
 
-    //private List<HiddenObjectData> activeHiddenObjectList;
-    private GameObject objectHolderPrefab;
-    public GameObject greenMark;
-
-    private int totalHiddenObjectsFound = 0;
-    private float currentTime = 0;
     private GameStatus gameStatus = GameStatus.NEXT;
     private GameLevel gameLevel = GameLevel.LEVEL_A;
 
     public Animator transition;
     public float transitionTime = 3f;
-    //private bool isCrossFade = true;
     public GameObject transitionPanel;
 
     private Timer timer;
 
+    private int _objectsFound;
+
     private void Awake()
     {
         timer = GetComponent<Timer>();
-        if (instance == null) instance = this;
-        else if (instance != null) Destroy(gameObject);
+        //_objectsFound = ObjectsFound.objectsFound;
     }
 
     private void Start()
@@ -52,7 +41,6 @@ public class LevelManager : MonoBehaviour
     void InitGameplay()
     {
         UIManager.instance.ButtonExit.gameObject.SetActive(false);
-        //UIManager.instance.TimerText.gameObject.SetActive(true);
         UIManager.instance.ObjectCount.gameObject.SetActive(true);
         LoadLevel();
         InitiateHiddenObjects();
@@ -61,12 +49,6 @@ public class LevelManager : MonoBehaviour
 
     void InitiateHiddenObjects()
     {
-        //currentTime = timeLimit;
-        //UIManager.instance.TimerText.text = "" + currentTime;
-        //totalHiddenObjectsFound = 0;
-        //UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
-        //activeHiddenObjectList.Clear();
-
         timer.StartTimer();
         gameStatus = GameStatus.PLAYING;
     }
@@ -114,7 +96,7 @@ public class LevelManager : MonoBehaviour
     void ObjectsFoundCheck()
     {
         // if total Objects Found < 3
-        if (totalHiddenObjectsFound < 3)
+        if (ObjectsFound.objectsFound < 3)
         {
             if (gameLevel == GameLevel.LEVEL_A)
             {
@@ -139,7 +121,7 @@ public class LevelManager : MonoBehaviour
         }
 
         // if total Objects Found >= 3
-        else if (totalHiddenObjectsFound >= 3)
+        else if (ObjectsFound.objectsFound >= 3)
         {
             if (gameLevel == GameLevel.LEVEL_A)
             {
@@ -175,7 +157,6 @@ public class LevelManager : MonoBehaviour
         else
         {
             UIManager.instance.ButtonExit.gameObject.SetActive(true);
-            //UIManager.instance.TimerText.gameObject.SetActive(false);
             UIManager.instance.ObjectCount.gameObject.SetActive(false);
             FindObjectOfType<AudioManager>().Stop("Gameplay");
             FindObjectOfType<AudioManager>().Play("Ending");
@@ -228,20 +209,4 @@ public class HiddenObjectData
     public string name;
     public GameObject hiddenObject;
     //public bool makeHidden = false;
-}
-
-public enum GameStatus
-{
-    PLAYING,
-    NEXT,
-    END
-}
-
-public enum GameLevel
-{
-    LEVEL_A, // Level Home
-    LEVEL_B, // Level Airport
-    LEVEL_C, // Level Train Station
-    LEVEL_D, // Level Beach
-    LEVEL_E  // Level Camp
 }
