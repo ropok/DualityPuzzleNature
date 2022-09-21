@@ -190,7 +190,7 @@ public class LevelManager : MonoBehaviour
     {
         if (gameStatus == GameStatus.PLAYING)
         {
-            if (timer.timeRemaining <= 0)
+            if (!timer.isTimeRunning)
             {
                 level.SetActive(false);
                 ObjectsFoundCheck();

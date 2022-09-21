@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    [SerializeField] private Text text;
     [SerializeField] private float timeLimit;
-    private bool isTimeRunning;
-    [HideInInspector] public float timeRemaining;
+    [HideInInspector] public bool isTimeRunning;
+    private float timeRemaining;
 
     private void Awake()
     {
@@ -19,7 +21,7 @@ public class Timer : MonoBehaviour
 
         timeRemaining = timeLimit;
         isTimeRunning = true;
-        UIManager.instance.TimerText.gameObject.SetActive(true); // maybe should be done on UIManager?
+        text.gameObject.SetActive(true);
     }
 
     public void StopTimer()
@@ -27,7 +29,7 @@ public class Timer : MonoBehaviour
         if (!isTimeRunning) return;
 
         isTimeRunning = false;
-        UIManager.instance.TimerText.gameObject.SetActive(false);
+        text.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -35,14 +37,14 @@ public class Timer : MonoBehaviour
         if (isTimeRunning && timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
-            TimeSpan time = TimeSpan.FromSeconds(timeRemaining);
-            DisplayTimer(time.ToString("mm':'ss"));
+            DisplayTimer(timeRemaining);
         }
         else StopTimer();
     }
 
-    void DisplayTimer(string timerString)
+    private void DisplayTimer(float _timerRemaining)
     {
-        UIManager.instance.TimerText.text = timerString;
+        TimeSpan time = TimeSpan.FromSeconds(_timerRemaining);
+        text.text = time.ToString("mm':'ss");
     }
 }

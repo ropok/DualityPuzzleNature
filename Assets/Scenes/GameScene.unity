@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ae9f29376d1374381ec9a95cc12b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 1843890673}
+  timerText: {fileID: 0}
   objectCount: {fileID: 45984102}
   levelText: {fileID: 2133719646}
   buttonExit: {fileID: 1018012464}
@@ -960,8 +960,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6549d651a1be7da4d8fa522fd66d06d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 1843890673}
   timeLimit: 5
-  timeRemaining: 0
+  isTimeRunning: 0
 --- !u!1 &1843890672
 GameObject:
   m_ObjectHideFlags: 0
