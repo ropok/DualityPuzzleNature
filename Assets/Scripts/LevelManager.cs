@@ -67,8 +67,8 @@ public class LevelManager : MonoBehaviour
         //UIManager.instance.ObjectCount.text = "" + totalHiddenObjectsFound;
         //activeHiddenObjectList.Clear();
 
-        gameStatus = GameStatus.PLAYING;
         timer.StartTimer();
+        gameStatus = GameStatus.PLAYING;
     }
 
     void LoadLevel()
