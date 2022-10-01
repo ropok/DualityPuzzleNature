@@ -1,4 +1,7 @@
-public static class ObjectsFound
+namespace ChoosingVacation
 {
-    public static int objectsFound;
+    public static class ObjectsFound
+    {
+        public static int objectsFound;
+    }
 }

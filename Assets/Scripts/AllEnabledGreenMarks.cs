@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 
-public static class AllEnabledGreenMarks
+namespace ChoosingVacation
 {
+    public static class AllEnabledGreenMarks
+    {
 
-    public static List<GreenMark> AllGreenMarks = new List<GreenMark>();
+        public static List<GreenMark> AllGreenMarks = new List<GreenMark>();
+    }
 }

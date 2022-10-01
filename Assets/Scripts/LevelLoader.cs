@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelLoader : MonoBehaviour
+namespace ChoosingVacation
 {
-
-    // Update is called once per frame
-    void Update()
+    public class LevelLoader : MonoBehaviour
     {
+
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }

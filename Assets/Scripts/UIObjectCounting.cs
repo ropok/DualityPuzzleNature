@@ -1,22 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIObjectCounting : MonoBehaviour
+namespace ChoosingVacation
 {
-    [SerializeField] private Text textObjectCount;
-
-    private void Awake()
+    public class UIObjectCounting : MonoBehaviour
     {
-        ApplyText(ObjectsFound.objectsFound.ToString());
-    }
+        [SerializeField] private Text textObjectCount;
 
-    private void Update()
-    {
-        ApplyText(ObjectsFound.objectsFound.ToString());
-    }
+        private void Awake()
+        {
+            ApplyText(ObjectsFound.objectsFound.ToString());
+        }
 
-    void ApplyText(string text)
-    {
-        textObjectCount.text = text;
+        private void Update()
+        {
+            ApplyText(ObjectsFound.objectsFound.ToString());
+        }
+
+        void ApplyText(string text)
+        {
+            textObjectCount.text = text;
+        }
     }
 }

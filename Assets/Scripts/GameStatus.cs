@@ -1,6 +1,9 @@
-﻿public enum GameStatus
+﻿namespace ChoosingVacation
 {
-    PLAYING,
-    NEXT,
-    END
+    public enum GameStatus
+    {
+        PLAYING,
+        NEXT,
+        END
+    }
 }

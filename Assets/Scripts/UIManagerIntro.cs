@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManagerIntro : MonoBehaviour
+namespace ChoosingVacation
 {
-    public static UIManagerIntro instance;
+    public class UIManagerIntro : MonoBehaviour
+    {
+        public static UIManagerIntro instance;
 
+    }
 }

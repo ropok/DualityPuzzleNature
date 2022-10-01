@@ -1,18 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectsCounting : MonoBehaviour
+namespace ChoosingVacation
 {
-    private Text text;
-
-    private void Awake()
+    public class ObjectsCounting : MonoBehaviour
     {
-        text = GetComponent<Text>();
-        ObjectsFound.objectsFound = 0;
-    }
+        private Text text;
 
-    private void Update()
-    {
-        text.text = ObjectsFound.objectsFound.ToString();
+        private void Awake()
+        {
+            text = GetComponent<Text>();
+            ObjectsFound.objectsFound = 0;
+        }
+
+        private void Update()
+        {
+            text.text = ObjectsFound.objectsFound.ToString();
+        }
     }
 }

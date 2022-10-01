@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class GreenMark : MonoBehaviour
+namespace ChoosingVacation
 {
-
-    private void OnEnable()
+    public class GreenMark : MonoBehaviour
     {
-        AllEnabledGreenMarks.AllGreenMarks.Add(this);
-    }
 
-    private void OnDisable()
-    {
-        AllEnabledGreenMarks.AllGreenMarks.Remove(this);
+        private void OnEnable()
+        {
+            AllEnabledGreenMarks.AllGreenMarks.Add(this);
+        }
+
+        private void OnDisable()
+        {
+            AllEnabledGreenMarks.AllGreenMarks.Remove(this);
+        }
     }
 }
