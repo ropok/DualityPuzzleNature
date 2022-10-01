@@ -95,6 +95,7 @@ namespace ChoosingVacation
      * if Objects Found equal to x, and times out.
      * Game ends at Level_D or Level_E
      */
+        // Rules of the game
         void ObjectsFoundCheck()
         {
             // if total Objects Found < 3
@@ -147,6 +148,7 @@ namespace ChoosingVacation
                 }
             }
 
+            // Load Next Level Variables
             textLevelList[(int)gameLevel] = string.Format(textLevelList[(int)gameLevel], ObjectsFound.objectsFound.ToString());
             UIManager.instance.LevelText.text = "" + textLevelList[(int)gameLevel];
             Debug.Log(textLevelList[(int)gameLevel]);
@@ -171,6 +173,7 @@ namespace ChoosingVacation
 
         private void Update()
         {
+            // Running the game
             if (gameStatus == GameStatus.PLAYING)
             {
                 if (!timer.isTimeRunning)
@@ -180,16 +183,14 @@ namespace ChoosingVacation
                 }
 
             }
-            /*
-         * Initiate new Level here
-         * Load new Objects
-         * Load new image
-         */
+            
+            // Loading Next Level
             else if (gameStatus == GameStatus.NEXT)
             {
                 Debug.Log("Load next level");
             }
 
+            // Condition where game is ended
             else if (gameStatus == GameStatus.END)
             {
 
@@ -202,14 +203,5 @@ namespace ChoosingVacation
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
         }
-    }
-
-    [System.Serializable]
-
-    public class HiddenObjectData
-    {
-        public string name;
-        public GameObject hiddenObject;
-        //public bool makeHidden = false;
     }
 }
