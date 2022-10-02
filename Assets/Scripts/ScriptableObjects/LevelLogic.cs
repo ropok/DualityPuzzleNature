@@ -6,14 +6,14 @@ namespace ChoosingVacation.ScriptableObjects
     public class LevelLogic : ScriptableObject
     {
         [Header("Level Settings")]
-        [SerializeField] private string currentLevel;
-        [SerializeField] private string nextLevel;
+        [SerializeField] private int currentLevel;
+        [SerializeField] private int nextLevel;
         [Header("Objects Found Settings")]
         [SerializeField] private int minObjectsFound;
         [SerializeField] private int maxObjectsFound;
 
-        public string CurrentLevel => currentLevel;
-        public string NextLevel => nextLevel;
+        public int CurrentLevel => currentLevel;
+        public int NextLevel => nextLevel;
         public int MinObjectsFound => minObjectsFound;
         public int MaxObjectsFound => maxObjectsFound;
     }
