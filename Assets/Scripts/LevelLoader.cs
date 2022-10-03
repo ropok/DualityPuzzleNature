@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ChoosingVacation
@@ -5,10 +7,14 @@ namespace ChoosingVacation
     public class LevelLoader : MonoBehaviour
     {
 
-        // Update is called once per frame
-        void Update()
+
+        private LevelDatabase levelDatabase;
+        private List<GameObject> levelList;
+
+        private void Awake()
         {
-        
+            levelDatabase = GetComponent<LevelDatabase>();
+            levelList = levelDatabase.levelList;
         }
     }
 }
