@@ -12,6 +12,7 @@ namespace ChoosingVacation
         public IntValue currentLevel;
         public IntValue nextLevel;
         public IntValue objectsFound;
+        public GameObject LevelLoaded { get; set; }
     }
 
 }
