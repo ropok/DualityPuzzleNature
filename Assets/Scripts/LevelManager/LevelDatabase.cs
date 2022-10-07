@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using ChoosingVacation.ScriptableObjects;
 using UnityEngine;
 
-namespace ChoosingVacation
+namespace ChoosingVacation.LevelManager
 {
     public class LevelDatabase : MonoBehaviour 
     {

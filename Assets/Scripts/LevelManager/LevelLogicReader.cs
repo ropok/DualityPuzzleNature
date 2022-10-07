@@ -1,8 +1,7 @@
-using System;
 using ChoosingVacation.ScriptableObjects;
 using UnityEngine;
 
-namespace ChoosingVacation
+namespace ChoosingVacation.LevelManager
 {
     public class LevelLogicReader : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ChoosingVacation
+namespace ChoosingVacation.LevelManager
 {
     public class LevelLoader : MonoBehaviour
     {
