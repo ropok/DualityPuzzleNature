@@ -33,20 +33,25 @@ namespace ChoosingVacation
 
         private void Start()
         {
+            // #Audio
             FindObjectOfType<AudioManager>().Play("Gameplay");
+            // #Transition
             transitionPanel.SetActive(true);
+            // #Load Level - UI text
             UIManager.instance.LevelText.text = "" + textLevelList[(int)gameLevel];
+            // #Transition
             StartCoroutine(CrossFadeInitiation());
+            // #Load Level - Initiation
             Invoke("InitGameplay", transitionTime);
         }
 
+        // #Load Level - Initiation
         void InitGameplay()
         {
             UIManager.instance.ButtonExit.gameObject.SetActive(false);
             UIManager.instance.ObjectCount.gameObject.SetActive(true);
             LoadLevel();
             InitiateHiddenObjects();
-
         }
 
         void InitiateHiddenObjects()
@@ -62,6 +67,7 @@ namespace ChoosingVacation
             level = Instantiate(levelList[(int)gameLevel], Vector3.zero, Quaternion.identity);
         }
 
+        // #Destroy Objects
         void DestroyGreenMark()
         {
             if (AllEnabledGreenMarks.AllGreenMarks.Count <= 0) return;
@@ -72,6 +78,7 @@ namespace ChoosingVacation
             }
         }
 
+        // #Transition
         IEnumerator CrossFadeInitiation()
         {
             yield return new WaitForSeconds(transitionTime);
@@ -90,6 +97,7 @@ namespace ChoosingVacation
 
         }
 
+        // #Level Logic
         /*
      * RULES HERE
      * if Objects Found equal to x, and times out.
@@ -148,12 +156,15 @@ namespace ChoosingVacation
                 }
             }
 
+            // #Load Level - UI
             // Load Next Level Variables
             textLevelList[(int)gameLevel] = string.Format(textLevelList[(int)gameLevel], ObjectsFound.objectsFound.ToString());
             UIManager.instance.LevelText.text = "" + textLevelList[(int)gameLevel];
             Debug.Log(textLevelList[(int)gameLevel]);
+            // #Transition
             StartCoroutine(CrossfadeInAnimation());
             StartCoroutine(CrossfadeOutAnimation());
+            // #Load level - END
             if (gameStatus != GameStatus.END)
             {
                 Invoke("InitiateHiddenObjects", transitionTime);
@@ -176,6 +187,7 @@ namespace ChoosingVacation
             // Running the game
             if (gameStatus == GameStatus.PLAYING)
             {
+                // #Event - times up
                 if (!timer.isTimeRunning)
                 {
                     level.SetActive(false);
@@ -199,6 +211,7 @@ namespace ChoosingVacation
         }
 
 
+        // #SceneManager
         public void ExitToMainMenu()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
