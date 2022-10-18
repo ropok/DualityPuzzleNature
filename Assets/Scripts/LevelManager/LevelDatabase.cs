@@ -11,6 +11,7 @@ namespace ChoosingVacation.LevelManager
         public IntValue currentLevel;
         public IntValue nextLevel;
         public IntValue objectsFound;
+        public BoolValue isLevelEnding;
         public GameObject LevelLoaded { get; set; }
     }
 

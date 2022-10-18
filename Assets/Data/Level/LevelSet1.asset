@@ -15,3 +15,7 @@ MonoBehaviour:
   listLevelLogic:
   - {fileID: 11400000, guid: 95c0d4ba181a87849a33f0e28bd53235, type: 2}
   - {fileID: 11400000, guid: ad306cca4d7964d40a4f61f207e9011c, type: 2}
+  - {fileID: 11400000, guid: 650880f931ab32e4386c922aa3828b21, type: 2}
+  - {fileID: 11400000, guid: 049afca0be958e64b876c9db47f13a45, type: 2}
+  - {fileID: 11400000, guid: b4811ba981972ff4c8c7169d9f6c631d, type: 2}
+  - {fileID: 11400000, guid: 62a3de8ce40f5f14494d3ae0b0a706c5, type: 2}

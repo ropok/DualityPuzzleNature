@@ -18,7 +18,9 @@ namespace ChoosingVacation.LevelManager
 
         public void LoadLevel()
         {
+            nextLevel = levelDatabase.nextLevel.Value;
             levelDatabase.LevelLoaded = Instantiate(levelList[nextLevel], Vector3.zero, Quaternion.identity);
+            levelDatabase.currentLevel.Value = nextLevel;
         }
 
         public void UnloadLevel()

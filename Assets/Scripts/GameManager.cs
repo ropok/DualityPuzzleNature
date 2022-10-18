@@ -14,7 +14,7 @@ namespace ChoosingVacation
 
         public List<String> textLevelList = new List<String>();
 
-        private GameStatus gameStatus = GameStatus.NEXT;
+        private GameStatus gameStatus = GameStatus.Next;
         private GameLevel gameLevel = GameLevel.LEVEL_A;
 
         public Animator transition;
@@ -57,7 +57,7 @@ namespace ChoosingVacation
         void InitiateHiddenObjects()
         {
             timer.StartTimer();
-            gameStatus = GameStatus.PLAYING;
+            gameStatus = GameStatus.Playing;
         }
 
         void LoadLevel()
@@ -113,21 +113,21 @@ namespace ChoosingVacation
                 {
                     Debug.Log("Jump to level B");
                     gameLevel = GameLevel.LEVEL_B;
-                    gameStatus = GameStatus.NEXT;
+                    gameStatus = GameStatus.Next;
                 }
 
                 else if (gameLevel == GameLevel.LEVEL_B)
                 {
                     Debug.Log("Jump to level E");
                     gameLevel = GameLevel.LEVEL_E;
-                    gameStatus = GameStatus.END;
+                    gameStatus = GameStatus.End;
                 }
 
                 else if (gameLevel == GameLevel.LEVEL_C)
                 {
                     Debug.Log("Jump to level D");
                     gameLevel = GameLevel.LEVEL_D;
-                    gameStatus = GameStatus.END;
+                    gameStatus = GameStatus.End;
                 }
             }
 
@@ -138,21 +138,21 @@ namespace ChoosingVacation
                 {
                     Debug.Log("Jump to level C");
                     gameLevel = GameLevel.LEVEL_C;
-                    gameStatus = GameStatus.NEXT;
+                    gameStatus = GameStatus.Next;
                 }
 
                 else if (gameLevel == GameLevel.LEVEL_B)
                 {
                     Debug.Log("Jump to level D");
                     gameLevel = GameLevel.LEVEL_D;
-                    gameStatus = GameStatus.END;
+                    gameStatus = GameStatus.End;
                 }
 
                 else if (gameLevel == GameLevel.LEVEL_C)
                 {
                     Debug.Log("Jump to level E");
                     gameLevel = GameLevel.LEVEL_E;
-                    gameStatus = GameStatus.END;
+                    gameStatus = GameStatus.End;
                 }
             }
 
@@ -165,7 +165,7 @@ namespace ChoosingVacation
             StartCoroutine(CrossfadeInAnimation());
             StartCoroutine(CrossfadeOutAnimation());
             // #Load level - END
-            if (gameStatus != GameStatus.END)
+            if (gameStatus != GameStatus.End)
             {
                 Invoke("InitiateHiddenObjects", transitionTime);
             }
@@ -185,25 +185,25 @@ namespace ChoosingVacation
         private void Update()
         {
             // Running the game
-            if (gameStatus == GameStatus.PLAYING)
+            if (gameStatus == GameStatus.Playing)
             {
                 // #Event - times up
-                if (!timer.isTimeRunning)
-                {
+                // if (!timer.isTimeRunning)
+                // {
                     level.SetActive(false);
                     ObjectsFoundCheck();
-                }
+                // }
 
             }
             
             // Loading Next Level
-            else if (gameStatus == GameStatus.NEXT)
+            else if (gameStatus == GameStatus.Next)
             {
                 Debug.Log("Load next level");
             }
 
             // Condition where game is ended
-            else if (gameStatus == GameStatus.END)
+            else if (gameStatus == GameStatus.End)
             {
 
                 // Change music

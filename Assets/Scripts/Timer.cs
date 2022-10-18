@@ -1,3 +1,5 @@
+using ChoosingVacation.Events;
+using ChoosingVacation.ScriptableObjects;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,23 +9,30 @@ namespace ChoosingVacation
     public class Timer : MonoBehaviour
     {
         [SerializeField] private Text text;
-        [SerializeField] private float timeLimit;
-        [HideInInspector] public bool isTimeRunning;
-        private float timeRemaining;
+        [SerializeField] private FloatValue timeLimit;
+        [SerializeField] private FloatValue timeRemaining;
+        [SerializeField] private EnumValue gameStatus;
+        [SerializeField] private GameEvent endLevel;
+
+        private bool isTimeRunning;
 
         private void Awake()
         {
+            ResetTimer();
+        }
+
+        public void ResetTimer()
+        {
             isTimeRunning = false;
-            timeRemaining = timeLimit;
+            timeRemaining.Value = timeLimit.Value;
         }
 
         public void StartTimer()
         {
             if (isTimeRunning) return;
 
-            timeRemaining = timeLimit;
+            timeRemaining.Value = timeLimit.Value;
             isTimeRunning = true;
-            text.gameObject.SetActive(true);
         }
 
         public void StopTimer()
@@ -31,22 +40,22 @@ namespace ChoosingVacation
             if (!isTimeRunning) return;
 
             isTimeRunning = false;
-            text.gameObject.SetActive(false);
+            endLevel.Raise();
         }
 
         private void Update()
         {
-            if (isTimeRunning && timeRemaining > 0)
+            if (isTimeRunning && timeRemaining.Value > 0)
             {
-                timeRemaining -= Time.deltaTime;
-                DisplayTimer(timeRemaining);
+                timeRemaining.Value -= Time.deltaTime;
+                DisplayTimer(timeRemaining.Value);
             }
             else StopTimer();
         }
 
-        private void DisplayTimer(float _timerRemaining)
+        private void DisplayTimer(float timerRemaining)
         {
-            TimeSpan time = TimeSpan.FromSeconds(_timerRemaining);
+            var time = TimeSpan.FromSeconds(timerRemaining);
             text.text = time.ToString("mm':'ss");
         }
     }
