@@ -7,11 +7,21 @@ namespace ChoosingVacation.ScriptableObjects
     {
 
         [SerializeField] private GameStatus value;
-        
+
         public GameStatus Value
         {
             get => value;
             set => this.value = value;
+        }
+
+        public void SetValue(GameStatus _value)
+        {
+            Value = _value;
+        }
+
+        public void SetValue(EnumValue _value)
+        {
+            Value = _value.Value;
         }
     }
 }

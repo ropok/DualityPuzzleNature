@@ -12,5 +12,15 @@ namespace ChoosingVacation.ScriptableObjects
             get => value;
             set => this.value = value;
         }
+
+        public void SetValue(int _value)
+        {
+            this.value = _value;
+        }
+
+        public void SetValue(IntValue _value)
+        {
+            this.value = _value.value;
+        }
     }
 }

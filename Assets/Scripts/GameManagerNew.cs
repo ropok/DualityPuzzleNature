@@ -10,10 +10,15 @@ namespace ChoosingVacation
         [SerializeField] private GameEvent startLevel;
         [SerializeField] private GameEvent endLevel;
         [SerializeField] private GameEvent ending;
+        [SerializeField] private GameEvent resetLevelData;
         [SerializeField] private FloatValue waitDuration;
         [SerializeField] private BoolValue isLevelEnding;
         [SerializeField] private EnumValue gameStatus;
 
+        private void Awake()
+        {
+            resetLevelData.Raise();
+        }
 
         private void Update()
         {
