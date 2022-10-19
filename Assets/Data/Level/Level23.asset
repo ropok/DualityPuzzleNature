@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8efc9f09941f4ff6932ee6d208612fb1, type: 3}
   m_Name: Level23
   m_EditorClassIdentifier: 
+  levelName: Beach
   currentLevel: 2
   nextLevel: 3
   isLevelEnding: 1

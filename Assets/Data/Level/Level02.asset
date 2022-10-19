@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8efc9f09941f4ff6932ee6d208612fb1, type: 3}
   m_Name: Level02
   m_EditorClassIdentifier: 
+  levelName: Train Station
   currentLevel: 0
   nextLevel: 2
+  isLevelEnding: 0
   minObjectsFound: 3
   maxObjectsFound: 10
