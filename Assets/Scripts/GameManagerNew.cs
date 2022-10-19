@@ -13,18 +13,23 @@ namespace ChoosingVacation
         [SerializeField] private GameEvent resetLevelData;
         [SerializeField] private FloatValue waitDuration;
         [SerializeField] private BoolValue isLevelEnding;
+        [SerializeField] private BoolValue isLevelStarting;
         [SerializeField] private EnumValue gameStatus;
 
         private void Awake()
         {
-            resetLevelData.Raise();
+            isLevelStarting.SetValue(false);
         }
 
         private void Update()
         {
-            if (gameStatus.Value == GameStatus.InitLevel) InitLevel();
-            if (gameStatus.Value == GameStatus.StartLevel) StartLevel();
-            if (gameStatus.Value == GameStatus.End) Ending();
+            if (isLevelStarting.Value)
+            {
+                if (gameStatus.Value == GameStatus.InitLevel) InitLevel();
+                if (gameStatus.Value == GameStatus.StartLevel) StartLevel();
+                if (gameStatus.Value == GameStatus.End) Ending();
+            }
+            if (!isLevelStarting.Value) resetLevelData.Raise();
         }
 
 

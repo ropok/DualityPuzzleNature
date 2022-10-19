@@ -334,6 +334,7 @@ MonoBehaviour:
   resetLevelData: {fileID: 11400000, guid: 601aa35987cc89b4a88583e78583198b, type: 2}
   waitDuration: {fileID: 11400000, guid: e5f7b91d26022b540973c31f3a977ec9, type: 2}
   isLevelEnding: {fileID: 11400000, guid: aea92b55904b8f24e885e4eaf58ac6c1, type: 2}
+  isLevelStarting: {fileID: 11400000, guid: 3be5473f7d471aa46850637f45a1af0e, type: 2}
   gameStatus: {fileID: 11400000, guid: 8469ffdf406fb4048a378fde55bfe4f4, type: 2}
 --- !u!114 &392167789
 MonoBehaviour:
@@ -924,6 +925,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 737208223}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &815731588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,6 +1013,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 3be5473f7d471aa46850637f45a1af0e, type: 2}
+        m_TargetAssemblyTypeName: ChoosingVacation.ScriptableObjects.BoolValue, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &858781888
 GameObject:
