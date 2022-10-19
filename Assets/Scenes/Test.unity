@@ -292,6 +292,8 @@ GameObject:
   m_Component:
   - component: {fileID: 392167787}
   - component: {fileID: 392167788}
+  - component: {fileID: 392167790}
+  - component: {fileID: 392167789}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -332,6 +334,34 @@ MonoBehaviour:
   waitDuration: {fileID: 11400000, guid: e5f7b91d26022b540973c31f3a977ec9, type: 2}
   isLevelEnding: {fileID: 11400000, guid: aea92b55904b8f24e885e4eaf58ac6c1, type: 2}
   gameStatus: {fileID: 11400000, guid: 8469ffdf406fb4048a378fde55bfe4f4, type: 2}
+--- !u!114 &392167789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392167786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17432d890d8be847adcbd9502d84746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObjectCount: {fileID: 393633074}
+  count: {fileID: 11400000, guid: a26e1beba187976478d6004b6b59812d, type: 2}
+--- !u!114 &392167790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392167786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dca5eda7e809114cae80cf6bc0bb08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenMark: {fileID: 1259790411824814022, guid: 512fbbc7e9e50e34ab7474513150d4a8, type: 3}
+  ObjectCount: {fileID: 11400000, guid: a26e1beba187976478d6004b6b59812d, type: 2}
 --- !u!1 &393633071
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &393633072
 RectTransform:
   m_ObjectHideFlags: 0
@@ -445,7 +475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &737208224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -594,6 +624,7 @@ Transform:
   - {fileID: 981943052}
   - {fileID: 2069655545}
   - {fileID: 277994332}
+  - {fileID: 1881420307}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -666,6 +697,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ChoosingVacation.LevelManager.LevelLogicReader,
           Assembly-CSharp
         m_MethodName: GenerateNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1881420306}
+        m_TargetAssemblyTypeName: ChoosingVacation.GreenMarkManager, Assembly-CSharp
+        m_MethodName: DestroyGreenMark
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -779,6 +822,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 393633071}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &815731587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,6 +851,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1827205985}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 393633071}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -1284,6 +1351,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827205985}
   m_CullTransparentMesh: 1
+--- !u!1 &1881420305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881420307}
+  - component: {fileID: 1881420306}
+  m_Layer: 0
+  m_Name: GreenMarkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1881420306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881420305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6657777dbd65d994c99062a75aa00814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1881420307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881420305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 815731583}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069655543
 GameObject:
   m_ObjectHideFlags: 0

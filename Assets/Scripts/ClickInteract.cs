@@ -1,11 +1,12 @@
+using ChoosingVacation.ScriptableObjects;
 using UnityEngine;
 
 namespace ChoosingVacation
 {
     public class ClickInteract : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject greenMark;
+        [SerializeField] private GameObject greenMark;
+        [SerializeField] private IntValue ObjectCount;
 
         private void Update()
         {
@@ -37,7 +38,7 @@ namespace ChoosingVacation
 
         void ObjectsCount(int count)
         {
-            ObjectsFound.objectsFound += count;
+            ObjectCount.Value += count;
         }
     }
 }
