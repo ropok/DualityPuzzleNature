@@ -10,6 +10,7 @@ namespace ChoosingVacation.LevelManager
         private IntValue nextLevel;
         private IntValue objectsFound;
         private BoolValue isLevelEnding;
+        private StringValue levelPlace;
 
         private LevelDatabase levelDatabase;
         private void Awake()
@@ -20,6 +21,7 @@ namespace ChoosingVacation.LevelManager
             nextLevel = levelDatabase.nextLevel;
             objectsFound = levelDatabase.objectsFound;
             isLevelEnding = levelDatabase.isLevelEnding;
+            levelPlace = levelDatabase.levelName;
         }
 
         public void GenerateNextLevel()
@@ -27,16 +29,17 @@ namespace ChoosingVacation.LevelManager
             foreach (var levelLogic in levelLogicList.ListLevelLogic)
             {
                 var logicCurrentLevel = levelLogic.CurrentLevel;
-                int[] objectsFoundRange = {levelLogic.MinObjectsFound, levelLogic.MaxObjectsFound};
+                int[] objectsFoundRange = { levelLogic.MinObjectsFound, levelLogic.MaxObjectsFound };
 
                 if (logicCurrentLevel != currentLevel.Value || (objectsFoundRange[0] > objectsFound.Value ||
                                                                 objectsFound.Value > objectsFoundRange[1])) continue;
                 nextLevel.Value = levelLogic.NextLevel;
                 isLevelEnding.Value = levelLogic.IsLevelEnding;
+                levelPlace.Value = levelLogic.LevelName;
                 return;
             }
 
         }
-        
+
     }
 }

@@ -268,6 +268,7 @@ MonoBehaviour:
   nextLevel: {fileID: 11400000, guid: e190c699aa342ec4abafc15859d0b221, type: 2}
   objectsFound: {fileID: 11400000, guid: a26e1beba187976478d6004b6b59812d, type: 2}
   isLevelEnding: {fileID: 11400000, guid: aea92b55904b8f24e885e4eaf58ac6c1, type: 2}
+  levelName: {fileID: 11400000, guid: e7f00db403a05fe4096cd83588e496e9, type: 2}
 --- !u!4 &277994332
 Transform:
   m_ObjectHideFlags: 0
@@ -628,6 +629,7 @@ Transform:
   - {fileID: 2069655545}
   - {fileID: 277994332}
   - {fileID: 1881420307}
+  - {fileID: 1973856771}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -749,6 +751,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1973856772}
+        m_TargetAssemblyTypeName: ChoosingVacation.TextLevelLoader, Assembly-CSharp
+        m_MethodName: UpdateTextLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1171,6 +1185,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 388481436947458608, guid: c6cc38a8db81d6f4aa132fe021dce2a9, type: 3}
   m_PrefabInstance: {fileID: 874515204}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &874515206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4960427708009070946, guid: c6cc38a8db81d6f4aa132fe021dce2a9, type: 3}
+  m_PrefabInstance: {fileID: 874515204}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &957487665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,6 +1571,54 @@ Transform:
   m_Father: {fileID: 815731583}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1973856770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973856771}
+  - component: {fileID: 1973856772}
+  m_Layer: 0
+  m_Name: TextLevelLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1973856771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973856770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 815731583}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1973856772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973856770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c2d58718bac614bab0b2919addf1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 874515206}
+  text1: {fileID: 11400000, guid: 6fd78d722a10eb44688a82ab1fad1984, type: 2}
+  mainText: {fileID: 11400000, guid: fe659509752d0184e8342a1d6cc31b14, type: 2}
+  placeText: {fileID: 11400000, guid: e7f00db403a05fe4096cd83588e496e9, type: 2}
+  objectFound: {fileID: 11400000, guid: a26e1beba187976478d6004b6b59812d, type: 2}
 --- !u!1 &2069655543
 GameObject:
   m_ObjectHideFlags: 0
